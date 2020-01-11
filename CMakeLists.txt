@@ -66,6 +66,13 @@ enable_testing( )
 add_subdirectory( ${CMAKE_SOURCE_DIR}/tests )
 
 
+# Add custom target to run binary
+
+add_custom_target( run
+  COMMAND ${ProjectName}
+  DEPENDS ${ProjectName} )
+
+
 # Force C++17 standard:
 
 set_property ( TARGET ${ProjectName} PROPERTY CXX_STANDARD 17 )
