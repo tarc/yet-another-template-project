@@ -15,9 +15,9 @@ conan_basic_setup( TARGETS )
 
 find_package( Git )
 
-set ( MAJOR "0" )
-set ( MINOR "0" )
-set ( PATCH "0" )
+set ( MAJOR_VERSION_NUMBER "0" )
+set ( MINOR_VERSION_NUMBER "0" )
+set ( PATCH_VERSION_NUMBER "0" )
 
 if ( Git_FOUND )
 
@@ -33,8 +33,6 @@ if ( Git_FOUND )
     set ( MINOR_VERSION_NUMBER ${CMAKE_MATCH_2} )
     set ( PATCH_VERSION_NUMBER ${CMAKE_MATCH_3} )
 
-    configure_file ( version.hpp.in version.hpp )
-
   else ( )
 
     message( "Could not extract version from: ${GIT_REPO_VERSION}" )
@@ -42,6 +40,8 @@ if ( Git_FOUND )
   endif ( )
 
 endif ( )
+
+configure_file ( version.hpp.in version.hpp )
 
 
 # Setting targets:
