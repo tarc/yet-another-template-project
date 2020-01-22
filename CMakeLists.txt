@@ -1,7 +1,14 @@
+# Enable MSVC runtime library flags
+
+cmake_minimum_required(VERSION 3.15)
+cmake_policy(SET CMP0091 NEW)
+
+
+# Start project
+
 set( ProjectName yet-another-template-project )
 
 project( ${ProjectName} )
-cmake_minimum_required( VERSION 3.10 )
 
 
 # Multi configuration build setup:
@@ -73,10 +80,19 @@ add_custom_target( run
   DEPENDS ${ProjectName} )
 
 
-# Force C++17 standard:
+# Force C++17 standard
 
 set_property ( TARGET ${ProjectName} PROPERTY CXX_STANDARD 17 )
 set_property ( TARGET ${ProjectName} PROPERTY CXX_STANDARD_REQUIRED ON )
 
 set_property ( TARGET tests PROPERTY CXX_STANDARD 17 )
 set_property ( TARGET tests PROPERTY CXX_STANDARD_REQUIRED ON )
+
+
+# Set static runtime for MSVC
+
+set_property(TARGET ${ProjectName} PROPERTY
+  MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+
+set_property(TARGET tests PROPERTY
+  MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
