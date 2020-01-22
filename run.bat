@@ -26,8 +26,8 @@ if NOT EXIST %build_dir%%build_type%\%app% (
 
 
 set error_message="%app%"
-cd %build_dir%%build_type%
-%app%
+cd %build_dir%
+cmake --build . --config %build_type% --target run
 if NOT '!ERRORLEVEL!'=='0' goto fail
 
 
