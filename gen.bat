@@ -12,13 +12,6 @@ where cmake > NUL 2> NUL
 if NOT '%ERRORLEVEL%'=='0' goto fail
 
 
-if NOT "%1"=="" (
-	set build_type=%1
-) else (
-	set build_type=Debug
-)
-
-
 set script_dir=%~dp0
 
 set gen_dir=%script_dir%Multi\
@@ -39,17 +32,17 @@ pushd %gen_dir%
 
 set error_message="conan install .. -g cmake_multi"
 
-conan install .. -g cmake_multi -s build_type=Release -s compiler.runtime=MT --build=missing
+conan install .. -g cmake_multi -s arch=x86_64 -s build_type=Release -s compiler.runtime=MT -s compiler.version=16 --build=missing
 if NOT '%ERRORLEVEL%'=='0' goto fail 
 
-conan install .. -g cmake_multi -s build_type=Debug -s compiler.runtime=MTd --build=missing
+conan install .. -g cmake_multi -s arch=x86_64 -s build_type=Debug -s compiler.runtime=MTd -s compiler.version=16 --build=missing
 if NOT '%ERRORLEVEL%'=='0' goto fail 
 
 
-set generator=Visual Studio 15 2017 Win64
+set generator=Visual Studio 16 2019
 
-set error_message="cmake -G "%generator%" .."
-cmake -G "%generator%" ..
+set error_message="cmake .. -G "%generator%" -A x64"
+cmake .. -G "%generator%" -A x64
 
 if NOT '%ERRORLEVEL%'=='0' goto fail 
 

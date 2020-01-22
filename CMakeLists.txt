@@ -13,7 +13,7 @@ project( ${ProjectName} )
 
 # Multi configuration build setup:
 
-include( ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake )
+include( ${CMAKE_BINARY_DIR}/conanbuildinfo_multi.cmake )
 
 conan_basic_setup( TARGETS )
 
