@@ -31,3 +31,18 @@ jobs:
 
       - name: Upgrade pip and install conan
         run: python -m pip install --upgrade pip conan
+
+      - name: macOS build
+        if: startsWith(matrix.os, 'macOS')
+        run: ./run.sh
+        shell: bash
+
+        #- name: Ubuntu build
+        #  if: startsWith(matrix.os, 'ubuntu')
+        #  run: ./run.sh
+        #  shell: bash
+
+      - name: Windows build
+        if: startsWith(matrix.os, 'windows')
+        run: run.bat
+        shell: cmd
