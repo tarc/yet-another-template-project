@@ -41,8 +41,8 @@ if NOT '%ERRORLEVEL%'=='0' goto fail
 
 set generator=Visual Studio 16 2019
 
-set error_message="cmake .. -G "%generator%" -A x64"
-cmake .. -G "%generator%" -A x64
+set error_message="cmake .. -G "%generator%" -DMULTI_CONFIG=ON -A x64"
+cmake .. -G "%generator%" -DMULTI_CONFIG=ON -A x64
 
 if NOT '%ERRORLEVEL%'=='0' goto fail 
 

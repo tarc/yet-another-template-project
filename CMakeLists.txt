@@ -11,9 +11,17 @@ set( ProjectName yet-another-template-project )
 project( ${ProjectName} )
 
 
-# Multi configuration build setup:
+# Single/Multi build setup:
 
-include( ${CMAKE_BINARY_DIR}/conanbuildinfo_multi.cmake )
+if ( MULTI_CONFIG )
+
+  include( ${CMAKE_BINARY_DIR}/conanbuildinfo_multi.cmake )
+
+else( MULTI_CONFIG )
+
+	include( ${CMAKE_BINARY_DIR}/conanbuildinfo.cmake )
+
+endif( MULTI_CONFIG )
 
 conan_basic_setup( TARGETS )
 

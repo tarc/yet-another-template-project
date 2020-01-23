@@ -16,4 +16,4 @@ if [ ! -d $build_dir ]; then
   ./$script_dir/gen.sh $build_type
 fi
 
-cmake --build $build_dir --target run || exit 1
+cmake --build $build_dir --config %build_type% --target run || exit 1
