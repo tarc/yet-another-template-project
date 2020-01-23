@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/tarc/yet-another-template-project/workflows/Windows%20build/badge.svg)](https://github.com/tarc/yet-another-template-project/actions)
+
 Template C++ project leveraging:
 
 - CMake
