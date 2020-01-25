@@ -1,7 +1,11 @@
 # Enable MSVC runtime library flags
 
-cmake_minimum_required(VERSION 3.15)
-cmake_policy(SET CMP0091 NEW)
+if ( UNIX AND NOT APPLE )
+  cmake_minimum_required(VERSION 3.12)
+else ( UNIX AND NOT APPLE )
+  cmake_minimum_required(VERSION 3.15)
+  cmake_policy(SET CMP0091 NEW)
+endif ( UNIX AND NOT APPLE )
 
 
 # Start project
@@ -99,8 +103,10 @@ set_property ( TARGET tests PROPERTY CXX_STANDARD_REQUIRED ON )
 
 # Set static runtime for MSVC
 
-set_property(TARGET ${ProjectName} PROPERTY
-  MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+if ( NOT UNIX OR APPLE )
+  set_property(TARGET ${ProjectName} PROPERTY
+    MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
-set_property(TARGET tests PROPERTY
-  MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  set_property(TARGET tests PROPERTY
+    MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif ( NOT UNIX OR APPLE )
