@@ -1,4 +1,4 @@
-[![CI](https://github.com/tarc/yet-another-template-project/workflows/CI/badge.svg)](https://github.com/tarc/yet-another-template-project/actions)
+[![Build and Test](https://github.com/tarc/yet-another-template-project/workflows/Build%20and%20Test/badge.svg)](https://github.com/tarc/yet-another-template-project/actions)
 
 Template C++ project leveraging:
 
