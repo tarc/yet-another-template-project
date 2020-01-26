@@ -74,12 +74,12 @@ jobs:
         run: ./test.sh
         shell: bash
 
-        #- name: Ubuntu test
-        #  if: startsWith(matrix.os, 'ubuntu')
-        #  run: ./test.sh
-        #  shell: bash
+      - name: Ubuntu test
+        if: startsWith(matrix.os, 'ubuntu')
+        run: ./test.sh
+        shell: bash
 
-        # - name: Windows test
-        #   if: startsWith(matrix.os, 'windows')
-        #   run: test.bat
-        #   shell: cmd
+      - name: Windows test
+        if: startsWith(matrix.os, 'windows')
+        run: test.bat
+        shell: cmd
