@@ -12,7 +12,13 @@ build_dir=$script_dir/$build_type
 
 tests=$build_dir/bin/tests
 
+if [ ! -d $build_dir ]; then
+  ./$script_dir/gen.sh $build_type
+fi
+
 TEST_RESULTS="${TEST_RESULTS:-$build_dir}/"
 
-./$script_dir/build.sh $build_type && \
-  ./$tests --gtest_output=xml:$TEST_RESULTS
+cd $build_dir
+
+cmake --build . --config $build_type --target all
+cmake --build . --config $build_type --target test

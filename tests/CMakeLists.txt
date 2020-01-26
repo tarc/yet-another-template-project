@@ -9,4 +9,4 @@ target_include_directories( tests
 target_link_libraries( tests
   PRIVATE CONAN_PKG::gtest )
 
-gtest_discover_tests( tests )
+gtest_discover_tests( tests EXTRA_ARGS --gtest_output=xml:report.xml )
