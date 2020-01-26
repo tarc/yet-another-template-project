@@ -1,4 +1,4 @@
-[![Build and Test](https://github.com/tarc/yet-another-template-project/workflows/Build%20and%20Unit%20Test/badge.svg?branch=feature/master)](https://github.com/tarc/yet-another-template-project/actions)
+[![Build and Test](https://github.com/tarc/yet-another-template-project/workflows/Build%20and%20Unit%20Test/badge.svg?branch=master)](https://github.com/tarc/yet-another-template-project/actions)
 
 C++ template project leveraging:
 
