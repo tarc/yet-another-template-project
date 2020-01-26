@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build and Unit Test
 
 on:
   push:
@@ -50,7 +50,7 @@ jobs:
         shell: cmd
 
   test:
-    name: Test
+    name: Unit Test
 
     runs-on: ${{ matrix.os }}
 
