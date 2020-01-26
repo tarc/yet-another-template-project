@@ -36,5 +36,5 @@ cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=$build_type \
 
 popd >/dev/null 2>&1
 
-rm ./compile_commands.json
+rm -f ./compile_commands.json
 ln -s $build_type/compile_commands.json ./
