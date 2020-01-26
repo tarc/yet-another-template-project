@@ -80,7 +80,7 @@ target_include_directories( ${ProjectName}
 
 include( GoogleTest )
 
-enable_testing( )
+include( CTest )
 
 add_subdirectory( ${CMAKE_SOURCE_DIR}/tests )
 
